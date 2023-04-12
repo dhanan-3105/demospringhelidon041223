@@ -1,0 +1,29 @@
+application.yml
+===============
+
+spring:
+  application:
+    name: monitoring-demo
+  datasource:
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password: pass
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+    defer-datasource-initialization: true
+  h2:
+    console.enabled: true
+    console.path: /h2-console
+management:
+  endpoints:
+    web:
+      base-path: /actuator
+      exposure:
+        include: [ "health" ]
+  endpoint:
+    health:
+      show-details: always
+server:
+  port: 8080
